@@ -1,0 +1,22 @@
+package io.github.liliangxu.phoneagent.codex;
+
+public enum BridgeStatus {
+    WAITING_DETECTED,
+    TASK_CREATED,
+    QUEUED,
+    NOTIFIED,
+    PICKED_UP,
+    RECORDING,
+    TRANSCRIBING,
+    ASR_DONE,
+    NO_REPLY,
+    REPLYING_TO_CODEX,
+    REPLIED_TO_CODEX,
+    CANCELLED,
+    FAILED_TASK_CREATE,
+    FAILED_BLF_NOTIFY,
+    FAILED_RECORDING,
+    FAILED_ASR,
+    FAILED_CODEX_SESSION_STOPPED,
+    FAILED_REPLY_TO_CODEX
+}

@@ -1,0 +1,23 @@
+package io.github.liliangxu.phoneagent.task;
+
+public enum TaskStatus {
+    CREATED,
+    QUEUED,
+    ASSIGNED,
+    NOTIFIED,
+    PICKED_UP,
+    RECORDING,
+    RECORDED,
+    TRANSCRIBING,
+    ASR_DONE,
+    NO_REPLY,
+    REPLYING_TO_CODEX,
+    REPLIED_TO_CODEX,
+    CANCELLED,
+    FAILED_TASK_CREATE,
+    FAILED_BLF_NOTIFY,
+    FAILED_RECORDING,
+    FAILED_ASR,
+    FAILED_CODEX_SESSION_STOPPED,
+    FAILED_REPLY_TO_CODEX
+}

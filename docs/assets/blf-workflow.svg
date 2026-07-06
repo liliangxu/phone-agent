@@ -1,0 +1,78 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="680" viewBox="0 0 1200 680" role="img" aria-labelledby="title desc">
+  <title id="title">Phone Agent BLF workflow</title>
+  <desc id="desc">A workflow diagram showing how a Codex waiting state turns into a BLF phone reminder, recording, transcription, and a resumed Codex session.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#31485c"/>
+    </marker>
+    <style>
+      .bg { fill: #f8fafc; }
+      .swim { fill: #ffffff; stroke: #b8c4ce; stroke-width: 2; rx: 18; }
+      .step { fill: #ffffff; stroke: #31485c; stroke-width: 2; rx: 14; }
+      .green { fill: #e8f6ee; stroke: #2f7d57; stroke-width: 2; rx: 14; }
+      .amber { fill: #fff2d9; stroke: #b6781e; stroke-width: 2; rx: 14; }
+      .red { fill: #ffe8e5; stroke: #b84a3a; stroke-width: 2; rx: 14; }
+      .title { font: 700 28px Arial, sans-serif; fill: #1f2a33; }
+      .lane { font: 700 17px Arial, sans-serif; fill: #31485c; }
+      .label { font: 700 17px Arial, sans-serif; fill: #1f2a33; }
+      .small { font: 14px Arial, sans-serif; fill: #44576a; }
+      .line { stroke: #31485c; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #6b7d90; stroke-width: 2.2; stroke-dasharray: 8 7; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="680"/>
+  <text x="60" y="58" class="title">BLF Reminder Workflow</text>
+  <text x="60" y="86" class="small">Terminal sessions stay local while phone callbacks advance task, bridge, and session state.</text>
+
+  <rect x="48" y="124" width="1104" height="124" class="swim"/>
+  <text x="72" y="158" class="lane">Codex Console</text>
+  <rect x="190" y="154" width="170" height="66" class="step"/>
+  <text x="225" y="181" class="label">Codex waits</text>
+  <text x="217" y="204" class="small">WAITING_USER</text>
+  <rect x="474" y="154" width="170" height="66" class="green"/>
+  <text x="506" y="181" class="label">Ring Phone</text>
+  <text x="505" y="204" class="small">create bridge</text>
+  <rect x="758" y="154" width="170" height="66" class="step"/>
+  <text x="781" y="181" class="label">Session resumes</text>
+  <text x="793" y="204" class="small">reply pasted</text>
+
+  <rect x="48" y="278" width="1104" height="124" class="swim"/>
+  <text x="72" y="312" class="lane">Phone Agent service</text>
+  <rect x="190" y="308" width="170" height="66" class="green"/>
+  <text x="229" y="335" class="label">Allocate slot</text>
+  <text x="214" y="358" class="small">task NOTIFIED</text>
+  <rect x="474" y="308" width="170" height="66" class="amber"/>
+  <text x="507" y="335" class="label">Set BLF red</text>
+  <text x="500" y="358" class="small">AMI device state</text>
+  <rect x="758" y="308" width="170" height="66" class="step"/>
+  <text x="793" y="335" class="label">Save reply</text>
+  <text x="786" y="358" class="small">bridge DONE</text>
+
+  <rect x="48" y="432" width="1104" height="124" class="swim"/>
+  <text x="72" y="466" class="lane">Asterisk and SIP phone</text>
+  <rect x="190" y="462" width="170" height="66" class="red"/>
+  <text x="218" y="489" class="label">BLF key lights</text>
+  <text x="218" y="512" class="small">Eventlist dialog</text>
+  <rect x="474" y="462" width="170" height="66" class="step"/>
+  <text x="499" y="489" class="label">User answers</text>
+  <text x="508" y="512" class="small">dialplan starts</text>
+  <rect x="758" y="462" width="170" height="66" class="step"/>
+  <text x="801" y="489" class="label">Recording</text>
+  <text x="785" y="512" class="small">hangup callback</text>
+
+  <path class="line" d="M360 187 H474"/>
+  <path class="line" d="M559 220 V308"/>
+  <path class="line" d="M360 341 H474"/>
+  <path class="line" d="M559 374 V462"/>
+  <path class="line" d="M360 495 H474"/>
+  <path class="line" d="M644 495 H758"/>
+  <path class="line" d="M843 462 V374"/>
+  <path class="line" d="M843 308 V220"/>
+  <path class="dash" d="M928 495 C1024 452 1024 376 928 341"/>
+  <path class="dash" d="M758 187 C690 136 645 138 644 187"/>
+
+  <text x="966" y="424" class="small">ASR transcript</text>
+  <text x="654" y="134" class="small">cancel/renotify gates keep terminal state stable</text>
+  <text x="74" y="604" class="small">No reply before recording becomes NO_REPLY; missing audio after RECORDING remains FAILED_RECORDING.</text>
+</svg>

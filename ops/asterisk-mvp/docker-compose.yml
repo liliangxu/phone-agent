@@ -1,0 +1,12 @@
+services:
+  asterisk:
+    image: mlan/asterisk:latest
+    container_name: phone-agent-asterisk-mvp
+    ports:
+      - "5060:5060/udp"
+      - "10000-10020:10000-10020/udp"
+      - "127.0.0.1:5038:5038/tcp"
+    volumes:
+      - ./:/etc/asterisk:ro
+      - ../../runtime/sounds:/usr/share/asterisk/sounds/phone-agent
+      - ../../runtime/recordings:/var/spool/asterisk/phone-agent/recordings

@@ -1,0 +1,88 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="720" viewBox="0 0 1200 720" role="img" aria-labelledby="title desc">
+  <title id="title">Phone Agent system architecture</title>
+  <desc id="desc">A maintainable architecture diagram showing the browser console, Spring service, Codex runtime, database, Asterisk, SIP phone, and ASR flow.</desc>
+  <defs>
+    <marker id="arrow" markerWidth="12" markerHeight="12" refX="10" refY="6" orient="auto">
+      <path d="M2 2 L10 6 L2 10 Z" fill="#38546b"/>
+    </marker>
+    <style>
+      .bg { fill: #f7faf8; }
+      .panel { fill: #ffffff; stroke: #9cb3a8; stroke-width: 2; rx: 18; }
+      .node { fill: #ffffff; stroke: #38546b; stroke-width: 2; rx: 14; }
+      .accent { fill: #e8f5ec; stroke: #2f7d57; stroke-width: 2; rx: 14; }
+      .warn { fill: #fff4df; stroke: #b8791e; stroke-width: 2; rx: 14; }
+      .title { font: 700 28px Arial, sans-serif; fill: #1f2a33; }
+      .label { font: 700 18px Arial, sans-serif; fill: #1f2a33; }
+      .small { font: 14px Arial, sans-serif; fill: #425466; }
+      .line { stroke: #38546b; stroke-width: 2.5; fill: none; marker-end: url(#arrow); }
+      .dash { stroke: #6b7d90; stroke-width: 2.2; stroke-dasharray: 8 7; fill: none; marker-end: url(#arrow); }
+    </style>
+  </defs>
+
+  <rect class="bg" width="1200" height="720"/>
+  <text x="60" y="58" class="title">Phone Agent Architecture</text>
+  <text x="60" y="86" class="small">Local-only bridge for Codex sessions, desk-phone reminders, recording, and speech-to-text replies.</text>
+
+  <rect x="44" y="118" width="522" height="520" class="panel"/>
+  <text x="72" y="154" class="label">Local workstation</text>
+
+  <rect x="76" y="188" width="190" height="82" class="node"/>
+  <text x="102" y="221" class="label">Browser Console</text>
+  <text x="102" y="247" class="small">/console/ UI</text>
+
+  <rect x="326" y="188" width="190" height="82" class="accent"/>
+  <text x="362" y="221" class="label">Spring Boot</text>
+  <text x="350" y="247" class="small">REST, bridge state</text>
+
+  <rect x="76" y="330" width="190" height="82" class="node"/>
+  <text x="119" y="363" class="label">Codex CLI</text>
+  <text x="107" y="389" class="small">managed sessions</text>
+
+  <rect x="326" y="330" width="190" height="82" class="node"/>
+  <text x="372" y="363" class="label">tmux/ttyd</text>
+  <text x="354" y="389" class="small">terminal panes</text>
+
+  <rect x="198" y="474" width="190" height="82" class="warn"/>
+  <text x="245" y="507" class="label">MySQL</text>
+  <text x="230" y="533" class="small">Flyway schema</text>
+
+  <rect x="634" y="118" width="522" height="520" class="panel"/>
+  <text x="662" y="154" class="label">Telephony and speech loop</text>
+
+  <rect x="682" y="188" width="190" height="82" class="accent"/>
+  <text x="734" y="221" class="label">Asterisk</text>
+  <text x="714" y="247" class="small">AMI, SIP, dialplan</text>
+
+  <rect x="914" y="188" width="190" height="82" class="node"/>
+  <text x="951" y="221" class="label">SIP Phone</text>
+  <text x="944" y="247" class="small">REGISTER, BLF</text>
+
+  <rect x="682" y="330" width="190" height="82" class="node"/>
+  <text x="724" y="363" class="label">Recording</text>
+  <text x="716" y="389" class="small">local WAV files</text>
+
+  <rect x="914" y="330" width="190" height="82" class="node"/>
+  <text x="972" y="363" class="label">ASR</text>
+  <text x="943" y="389" class="small">Whisper command</text>
+
+  <rect x="798" y="474" width="190" height="82" class="warn"/>
+  <text x="844" y="507" class="label">Callbacks</text>
+  <text x="825" y="533" class="small">reply to session</text>
+
+  <path class="line" d="M266 229 H326"/>
+  <path class="line" d="M421 270 V330"/>
+  <path class="line" d="M326 371 H266"/>
+  <path class="line" d="M421 412 L338 474"/>
+  <path class="line" d="M516 229 C590 229 603 229 682 229"/>
+  <path class="line" d="M872 229 H914"/>
+  <path class="line" d="M777 270 V330"/>
+  <path class="line" d="M872 371 H914"/>
+  <path class="line" d="M1009 412 C1009 500 988 515 988 515"/>
+  <path class="line" d="M798 515 C635 515 572 371 516 371"/>
+  <path class="dash" d="M914 246 C822 306 778 308 778 330"/>
+  <path class="dash" d="M872 515 C724 588 493 587 388 535"/>
+
+  <text x="552" y="214" class="small">task + BLF control</text>
+  <text x="880" y="296" class="small">answer and speak</text>
+  <text x="568" y="585" class="small">transcript becomes a Codex reply</text>
+</svg>

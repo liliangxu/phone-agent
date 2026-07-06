@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Phone Agent Console</title>
+    <link rel="icon" href="data:,">
+    <link rel="stylesheet" href="/console/console.css">
+</head>
+<body>
+<main class="app">
+    <aside class="sidebar">
+        <header class="sidebar-header">
+            <h1 id="sessionsTitle">Sessions</h1>
+            <div class="actions">
+                <button id="newSessionButton" type="button">New</button>
+                <span id="syncStatus" class="sync-status">Live · -</span>
+                <div class="locale-control" aria-label="Language">
+                    <button type="button" class="locale-button" data-locale="zh-CN" aria-pressed="false">中</button>
+                    <button type="button" class="locale-button" data-locale="en" aria-pressed="false">EN</button>
+                </div>
+            </div>
+        </header>
+        <div id="errorBanner" class="error hidden"></div>
+        <div class="ring-phone-panel">
+            <div class="ring-phone-copy" id="ringPhoneStatus">可用于提醒座机用户查看红色按键</div>
+            <div class="ring-phone-actions">
+                <button id="ringPhoneButton" type="button">呼叫座机</button>
+                <button id="syncBlfButton" type="button">同步 BLF</button>
+            </div>
+        </div>
+        <section id="sessionList" class="session-list" aria-label="Codex sessions"></section>
+    </aside>
+    <div id="sidebarResizer" class="sidebar-resizer" role="separator" aria-label="Resize sessions"></div>
+    <section class="cockpit">
+        <header class="cockpit-toolbar">
+            <div>
+                <h2 id="cockpitTitle">Codex Cockpit</h2>
+                <p id="cockpitSubtitle">Drag sessions into panes.</p>
+            </div>
+            <div class="layout-controls" aria-label="Pane layout">
+                <button type="button" class="layout-button" data-pane-count="1">1</button>
+                <button type="button" class="layout-button" data-pane-count="2">2</button>
+                <button type="button" class="layout-button" data-pane-count="3">3</button>
+                <button type="button" class="layout-button" data-pane-count="4">4</button>
+                <button type="button" class="layout-button" data-pane-count="6">6</button>
+            </div>
+        </header>
+        <section id="paneGrid" class="pane-grid" aria-label="Codex terminal panes"></section>
+    </section>
+</main>
+
+<script src="/console/console.js"></script>
+</body>
+</html>

@@ -1,0 +1,60 @@
+### MAVEN ###
+.mvn
+mvnw
+mvnw.cmd
+
+### GRADLE ###
+.gradle
+#gradle/
+#gradlew
+#gradlew.bat
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+
+### OTHER ###
+.env
+.env.*
+!.env.example
+logs/
+out/
+runtime/
+models/
+/workspace
+
+### INTERNAL DESIGN / REVIEW ARTIFACTS ###
+docs/prototypes/
+docs/requirements/
+docs/research-docs/
+docs/reviews/
+
+### AI ASSISTANT LOCAL FILES ###
+/AGENTS.md
+/CLAUDE.md
+/GEMINI.md
+/.codex/
+/.claude/
+/.cursor/
+/.continue/
+/.windsurf/
+*.ai.local.md
+*.prompt.local.md
