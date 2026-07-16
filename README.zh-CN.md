@@ -1,10 +1,10 @@
-# Phone Agent
+# Phone Agent — Codex 的 SIP 座机桥接工具
 
 [English](README.md) | 中文
 
 ![Phone Agent 封面](docs/assets/readme-cover.png)
 
-Phone Agent 是一个本机电话与 Codex 的桥接工具。它把座机工作流、Asterisk 任务、本地语音识别和受管 Codex 终端会话连接起来，让用户可以通过电话发起或继续 Codex 工作。
+Phone Agent 是一个连接 SIP 座机与 Codex 的本地桥接工具。它把 Asterisk、本地语音识别和受管 Codex 终端会话连接起来，让用户可以通过电话发起 Codex 工作，在需要输入时让已注册的座机振铃，并把语音回复写回对应会话。
 
 本项目定位为本地开发和实验室工具，不是云端多租户服务。Console 可以操作连接到 Codex 的可写终端，因此默认应只在 loopback 上运行；如果要远程访问，必须先补充认证、CSRF、防火墙、TLS、secret 管理和终端操作审计设计。
 
