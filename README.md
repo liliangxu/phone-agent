@@ -4,7 +4,7 @@ English | [中文](README.zh-CN.md)
 
 ![Phone Agent cover](docs/assets/readme-cover.png)
 
-Phone Agent is a local SIP desk-phone bridge for Codex. It connects Asterisk, local speech recognition, and managed Codex terminal sessions so a user can start Codex work by phone, ring a registered desk phone when input is needed, and send spoken replies back to the matching session.
+Phone Agent is a local SIP desk-phone bridge for Codex, an AI coding agent. It connects Asterisk, local speech recognition, and managed Codex terminal sessions so a user can start Codex work by phone, ring a registered desk phone when input is needed, and send spoken replies back to the matching session.
 
 This project is a local development and lab tool, not a hosted multi-tenant service. The Console exposes writable terminal access to managed Codex sessions, so run it on loopback by default and do not expose it to the public internet without adding authentication, CSRF protection, firewall rules, and proper secret management.
 
